@@ -21,7 +21,7 @@ public class Controlador {
 
 		//Leer Archivo Linea por Linea
 		while ((strLine = br.readLine()) != null)   {
-			String[] parts = strLine.split(":");
+			String[] parts = strLine.split("\\|");
 
 			//Las partes del Array temporal se asignan como categoria y producto de la estructura
 			String category = parts[0].trim();
@@ -79,7 +79,7 @@ public class Controlador {
 					}
 
 					System.out.println("Categoria = " + entry.getKey() +
-							", Producto" + entry.getValue().get(i) + ", Cantidad " + cantidad); 
+							", Producto " + entry.getValue().get(i) + ", Cantidad " + cantidad); 
 				}
 
 
@@ -98,7 +98,7 @@ public class Controlador {
 					}
 
 					System.out.println("Categoria = " + entry.getKey() +
-							", Producto" + entry.getValue().get(i) + ", Cantidad " + cantidad);
+							", Producto " + entry.getValue().get(i) + ", Cantidad " + cantidad);
 				}
 
 
