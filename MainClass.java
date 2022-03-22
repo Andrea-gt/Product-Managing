@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class MainClass {
 	public static void main(String[] args) {
@@ -25,7 +26,7 @@ public class MainClass {
 
 			while(flag) {
 				System.out.println("\nQue desea hacer");
-				System.out.println("1. Agregar un Producto a la ColecciÃ³n");
+				System.out.println("1. Agregar un Producto a la Colección");
 				System.out.println("2. Categoria del Producto");
 				System.out.println("3. Datos de Producto");
 				System.out.println("4. Datos de Producto Ordenados");
@@ -62,10 +63,24 @@ public class MainClass {
 					System.out.println("Ingrese el nombre del producto");
 					String productName = sn.nextLine();
 
+					if(ctr.searchProduct(productName, Map)==null) {
+						System.out.println("Producto no encontrado");
+					}
+
+					if(ctr.searchProduct(productName, Map) !=null) {
+						System.out.println("Producto encontrado en:" + " " + ctr.searchProduct(productName, Map));
+					}
+					break;
+
 				case 3:
-
+					ctr.countFreq(Map);
+					break;
+					
 				case 4:
-
+					TreeMap<String,List<String>> SortedMap = new TreeMap<>(Map);
+					ctr.countFreqSort(SortedMap);
+					break;
+					
 				case 5:
 					ctr.printMap(Map);
 					break;
@@ -76,8 +91,8 @@ public class MainClass {
 
 				}
 			}
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 		}
 	}
 }
-

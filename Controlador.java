@@ -56,4 +56,52 @@ public class Controlador {
 			System.out.println("Categoria = " + entry.getKey() +
 					", Productos = " + entry.getValue());       
 	}
+
+	public static String searchProduct(String name, Map<String, List<String>> Map) {
+		for(Entry<String, List<String>> entry : Map.entrySet()) {
+			if(entry.getValue().contains(name)==true) {
+				return entry.getKey();
+			}
+		}
+		return null;
+	}
+
+	//Metodo obtenido de GeeksforGeeks.com
+	public static void countFreq(Map<String, List<String>> Map)
+	{
+		for (Entry<String, List<String>> entry : Map.entrySet())
+			for (int i = 0; i < entry.getValue().size(); i++) {
+				int cantidad = 1;
+				for (int j = i + 1 ; j < entry.getValue().size(); j++) {
+					if (entry.getValue().get(i).equals(entry.getValue().get(j))) {
+						cantidad++;
+						System.out.println(entry.getValue().get(i));
+					}
+
+					System.out.println("Categoria = " + entry.getKey() +
+							", Producto" + entry.getValue().get(i) + ", Cantidad " + cantidad); 
+				}
+
+
+			}
+	}
+	
+	public static void countFreqSort(Map<String, List<String>> SortedMap)
+	{
+		for (Entry<String, List<String>> entry : SortedMap.entrySet())
+			for (int i = 0; i < entry.getValue().size(); i++) {
+				int cantidad = 1;
+				for (int j = i + 1 ; j < entry.getValue().size(); j++) {
+					if (entry.getValue().get(i).equals(entry.getValue().get(j))) {
+						cantidad++;
+						System.out.println(entry.getValue().get(i));
+					}
+
+					System.out.println("Categoria = " + entry.getKey() +
+							", Producto" + entry.getValue().get(i) + ", Cantidad " + cantidad);
+				}
+
+
+			}
+	}
 }
